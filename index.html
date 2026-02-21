@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastermind</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Rideau (quand le robot choisit) -->
+  <div id="curtain" class="curtain hidden">
+    <div class="curtain-content">
+      <div class="curtain-text">Le robot choisit sa combinaison...</div>
+      <div class="curtain-timer">00:40</div>
+    </div>
+  </div>
+
+  <!-- Jeu principal -->
+  <div class="game-container">
+    <!-- Barre du haut -->
+    <div class="top-bar">
+      <button class="btn-theme" id="theme-toggle">☀</button>
+      <div class="score">Score : <span id="score-value">0</span> pts</div>
+    </div>
+
+    <!-- Combinaison secrete -->
+    <div class="secret-row">
+      <div class="secret-label">Combinaison secrete</div>
+      <div class="secret-slots">
+        <div class="secret-slot">?</div>
+        <div class="secret-slot">?</div>
+        <div class="secret-slot">?</div>
+        <div class="secret-slot">?</div>
+      </div>
+    </div>
+
+    <!-- Timer + Go -->
+    <div class="timer-bar">
+      <div class="timer" id="game-timer">⏱ 00:00</div>
+      <button class="btn-go">Go</button>
+    </div>
+
+    <!-- Grille des essais -->
+    <div class="board">
+      <div class="row active" data-row="1">
+        <div class="row-left"><div class="row-indicator">▶</div><div class="row-number">1</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="2">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">2</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="3">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">3</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="4">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">4</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="5">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">5</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="6">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">6</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="7">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">7</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="8">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">8</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="9">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">9</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+      <div class="row" data-row="10">
+        <div class="row-left"><div class="row-indicator"></div><div class="row-number">10</div></div>
+        <div class="guess-slots">
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+          <div class="guess-slot"></div>
+        </div>
+        <div class="feedback-slots">
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+          <div class="feedback-dot"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Menu deroulant des couleurs (apparait au clic) -->
+  <div id="color-dropdown" class="color-dropdown hidden">
+    <div class="dropdown-option" data-color="red" style="background-color: #e74c3c;"></div>
+    <div class="dropdown-option" data-color="blue" style="background-color: #3498db;"></div>
+    <div class="dropdown-option" data-color="yellow" style="background-color: #f1c40f;"></div>
+    <div class="dropdown-option" data-color="green" style="background-color: #2ecc71;"></div>
+    <div class="dropdown-option" data-color="purple" style="background-color: #9b59b6;"></div>
+  </div>
+
+  <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+/* === Reset & Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a2e;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Game Container === */
+.game-container {
+  background-color: #16213e;
+  border-radius: 16px;
+  padding: 20px;
+  width: 420px;
+  max-width: 95vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* === Top Bar === */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.btn-theme {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #eee;
+  transition: transform 0.3s;
+}
+
+.btn-theme:hover {
+  transform: scale(1.2);
+}
+
+/* === Light Mode === */
+body.light {
+  background-color: #f0f0f0;
+}
+
+body.light .game-container {
+  background-color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light .btn-theme {
+  color: #222;
+}
+
+body.light .score {
+  color: #d35400;
+}
+
+body.light .secret-label {
+  color: #666;
+}
+
+body.light .secret-slot {
+  background-color: #ddd;
+  border-color: #bbb;
+  color: #999;
+}
+
+body.light .timer {
+  color: #222;
+}
+
+body.light .btn-go {
+  background: #e74c3c;
+}
+
+body.light .row {
+  background-color: #f5f5f5;
+}
+
+body.light .row.active {
+  background-color: #e8f0fe;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+body.light .row-number {
+  color: #666;
+}
+
+body.light .row-indicator {
+  color: #3498db;
+}
+
+body.light .guess-slot {
+  background-color: #ddd;
+  border-color: #bbb;
+}
+
+body.light .guess-slot.color-red { background-color: #e74c3c; border-color: #e74c3c; }
+body.light .guess-slot.color-blue { background-color: #3498db; border-color: #3498db; }
+body.light .guess-slot.color-yellow { background-color: #f1c40f; border-color: #f1c40f; }
+body.light .guess-slot.color-green { background-color: #2ecc71; border-color: #2ecc71; }
+body.light .guess-slot.color-purple { background-color: #9b59b6; border-color: #9b59b6; }
+
+body.light .feedback-dot {
+  background-color: #ccc;
+  border-color: #aaa;
+}
+
+body.light .feedback-dot.misplaced {
+  background-color: #333;
+  border-color: #333;
+}
+
+body.light .feedback-dot.exact {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+body.light .palette-shortcuts {
+  color: #999;
+}
+
+body.light .color-dropdown {
+  background: #ffffff;
+  border-color: #3498db;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.score {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f1c40f;
+}
+
+/* === Secret Row === */
+.secret-row {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.secret-label {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.secret-slots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.secret-slot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #0f3460;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #888;
+}
+
+/* === Timer Bar === */
+.timer-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.timer {
+  font-size: 20px;
+  font-weight: bold;
+  color: #eee;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-go {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-go:hover {
+  background: #c0392b;
+}
+
+/* === Board === */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+/* === Row === */
+.row {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background-color: #1a1a2e;
+  opacity: 0.5;
+}
+
+.row.active {
+  opacity: 1;
+  background-color: #0f3460;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+.row.played {
+  opacity: 0.8;
+}
+
+.row-left {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.row-indicator {
+  width: 16px;
+  font-size: 12px;
+  color: #3498db;
+  text-align: center;
+}
+
+.row-number {
+  width: 22px;
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+}
+
+/* === Guess Slots === */
+.guess-slots {
+  display: flex;
+  gap: 8px;
+  margin: 0 auto;
+  transform: translateX(-12px);
+}
+
+.guess-slot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2c3e6d;
+  border: 2px solid #555;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.row.active .guess-slot:hover {
+  transform: scale(1.1);
+  border-color: #3498db;
+}
+
+.guess-slot.color-red { background-color: #e74c3c; border-color: #e74c3c; }
+.guess-slot.color-blue { background-color: #3498db; border-color: #3498db; }
+.guess-slot.color-yellow { background-color: #f1c40f; border-color: #f1c40f; }
+.guess-slot.color-green { background-color: #2ecc71; border-color: #2ecc71; }
+.guess-slot.color-purple { background-color: #9b59b6; border-color: #9b59b6; }
+
+/* === Feedback Slots === */
+.feedback-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-left: 8px;
+}
+
+.feedback-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #95a5c0;
+  border: 1px solid #a5b5d0;
+}
+
+.feedback-dot.exact {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.feedback-dot.misplaced {
+  background-color: #eee;
+  border-color: #eee;
+}
+
+/* === Color Palette === */
+.color-palette {
+  text-align: center;
+}
+
+.color-palette .palette-color {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: 0 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.color-palette .palette-color:hover {
+  transform: scale(1.15);
+}
+
+.palette-shortcuts {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* === Color Dropdown === */
+.color-dropdown {
+  position: absolute;
+  background: #16213e;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.color-dropdown.hidden {
+  display: none;
+}
+
+.dropdown-option {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s;
+  border: 2px solid transparent;
+}
+
+.dropdown-option:hover {
+  transform: scale(1.15);
+  border-color: white;
+}
+
+/* === Curtain === */
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f3460;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.curtain.hidden {
+  display: none;
+}
+
+.curtain-content {
+  text-align: center;
+}
+
+.curtain-text {
+  font-size: 22px;
+  color: #eee;
+  margin-bottom: 24px;
+}
+
+.curtain-timer {
+  font-size: 72px;
+  font-weight: bold;
+  color: #e74c3c;
+  font-variant-numeric: tabular-nums;
+}
+
+/* === Responsive Mobile === */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 14px;
+    border-radius: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .guess-slot {
+    width: 36px;
+    height: 36px;
+  }
+
+  .secret-slot {
+    width: 42px;
+    height: 42px;
+  }
+
+  .color-palette .palette-color {
+    width: 32px;
+    height: 32px;
+    margin: 0 4px;
+  }
+
+  .curtain-text {
+    font-size: 18px;
+  }
+
+  .curtain-timer {
+    font-size: 56px;
+  }
+}
