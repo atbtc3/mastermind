@@ -7,13 +7,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Rideau (quand le robot choisit) -->
-  <div id="curtain" class="curtain hidden">
-    <div class="curtain-content">
-      <div class="curtain-text">Le robot choisit sa combinaison...</div>
-      <div class="curtain-timer">00:40</div>
-    </div>
-  </div>
 
   <!-- Jeu principal -->
   <div class="game-container">
@@ -26,13 +19,22 @@
     <!-- Combinaison secrete -->
     <div class="secret-row">
       <div class="secret-label">Combinaison secrete</div>
-      <div class="secret-slots">
-        <div class="secret-slot">?</div>
-        <div class="secret-slot">?</div>
-        <div class="secret-slot">?</div>
-        <div class="secret-slot">?</div>
+      <div class="secret-area">
+        <div class="secret-slots">
+          <div class="secret-slot">?</div>
+          <div class="secret-slot">?</div>
+          <div class="secret-slot">?</div>
+          <div class="secret-slot">?</div>
+        </div>
+        <!-- Rideau par dessus les ronds secrets -->
+        <div id="curtain" class="curtain hidden">
+          <div class="curtain-timer">3</div>
+        </div>
       </div>
     </div>
+
+    <!-- Message victoire/defaite -->
+    <div id="game-message" class="game-message hidden"></div>
 
     <!-- Timer + Go -->
     <div class="timer-bar">
@@ -205,6 +207,8 @@
     <div class="dropdown-option" data-color="purple" style="background-color: #9b59b6;"></div>
   </div>
 
+  <script src="js/game.js"></script>
+  <script src="js/timer.js"></script>
   <script src="js/ui.js"></script>
 </body>
 </html>
