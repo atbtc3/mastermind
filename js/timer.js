@@ -2,7 +2,7 @@
 
 let gameTimerInterval = null;
 let gameSeconds = 0;
-const ROUND_TIME = 40; // 40 secondes par ligne
+let ROUND_TIME = 40; // 40 secondes par ligne (modifiable dans les reglages)
 
 // Callback quand le temps est ecoule
 let _timerCallback = null;
@@ -56,6 +56,12 @@ function stopRoundTimer() {
 function resetRoundTimer(callback) {
   stopRoundTimer();
   startRoundTimer(callback);
+}
+
+function resetTimerDisplay() {
+  const timerEl = document.getElementById('game-timer');
+  timerEl.textContent = '⏱ 00:00';
+  timerEl.classList.remove('warning');
 }
 
 function updateTimerDisplay() {

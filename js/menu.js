@@ -1,7 +1,5 @@
 // === Menu principal ===
 
-let currentLang = 'fr';
-
 // === Bouton Jouer ===
 document.getElementById('btn-play').addEventListener('click', () => {
   document.getElementById('menu').classList.add('hidden');
@@ -38,23 +36,7 @@ document.querySelectorAll('.modal').forEach(modal => {
   });
 });
 
-// === Changement de langue ===
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentLang = btn.dataset.lang;
-    updateLanguage();
-  });
-});
-
-function updateLanguage() {
-  document.querySelectorAll('[data-' + currentLang + ']').forEach(el => {
-    el.textContent = el.getAttribute('data-' + currentLang);
-  });
-}
-
-// === Reglages ===
+// === Settings ===
 let settingTime = 40;
 let settingLines = 10;
 let settingColors = 5;
@@ -66,8 +48,9 @@ document.querySelectorAll('.setting-btn').forEach(btn => {
 
     if (setting === 'time') {
       if (action === 'plus' && settingTime < 70) settingTime += 5;
-      if (action === 'minus' && settingTime > 5) settingTime -= 5;
+      if (action === 'minus' && settingTime > 10) settingTime -= 5;
       document.getElementById('setting-time').textContent = settingTime + 's';
+      ROUND_TIME = settingTime;
     }
 
     if (setting === 'lines') {

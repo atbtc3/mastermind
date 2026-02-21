@@ -232,11 +232,19 @@ body {
 }
 
 .legend-dot.exact {
-  background-color: #ff1744;
+  background-color: #ffd600;
 }
 
 .legend-dot.misplaced {
-  background-color: #00e676;
+  background-color: #00e5ff;
+}
+
+body.light .legend-dot.exact {
+  background-color: #f9a825;
+}
+
+body.light .legend-dot.misplaced {
+  background-color: #4dd0e1;
 }
 
 /* === Settings === */
@@ -396,6 +404,23 @@ body.light .btn-home {
   color: #222;
 }
 
+.btn-reset {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #eee;
+  transition: transform 0.2s;
+}
+
+.btn-reset:hover {
+  transform: scale(1.2);
+}
+
+body.light .btn-reset {
+  color: #222;
+}
+
 /* === Top Bar === */
 .top-bar {
   display: flex;
@@ -493,13 +518,13 @@ body.light .feedback-dot {
 }
 
 body.light .feedback-dot.misplaced {
-  background-color: #2e8b57;
-  border-color: #2e8b57;
+  background-color: #4dd0e1;
+  border-color: #4dd0e1;
 }
 
 body.light .feedback-dot.exact {
-  background-color: #8b2040;
-  border-color: #8b2040;
+  background-color: #f9a825;
+  border-color: #f9a825;
 }
 
 body.light .palette-shortcuts {
@@ -727,13 +752,13 @@ body.light .game-message .sub-message {
 }
 
 .feedback-dot.exact {
-  background-color: #ff1744;
-  border-color: #ff1744;
+  background-color: #ffd600;
+  border-color: #ffd600;
 }
 
 .feedback-dot.misplaced {
-  background-color: #00e676;
-  border-color: #00e676;
+  background-color: #00e5ff;
+  border-color: #00e5ff;
 }
 
 /* === Color Palette === */

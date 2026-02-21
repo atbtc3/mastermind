@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +8,19 @@
 </head>
 <body>
 
-  <!-- Menu principal -->
+  <!-- Main Menu -->
   <div id="menu" class="menu-container">
-    <!-- Barre du haut menu -->
     <div class="menu-top-bar">
       <div class="menu-top-left">
         <button class="btn-theme" id="menu-theme-toggle">☀</button>
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="fr">FR</button>
-          <span class="lang-sep">|</span>
-          <button class="lang-btn" data-lang="en">EN</button>
-        </div>
       </div>
       <div class="menu-top-right">
-        <button class="menu-link" id="btn-rules" data-fr="Règles" data-en="Rules">Règles</button>
-        <button class="menu-link" id="btn-settings" data-fr="Réglages" data-en="Settings">Réglages</button>
-        <button class="menu-link" id="btn-info" data-fr="Info" data-en="Info">Info</button>
+        <button class="menu-link" id="btn-rules">Rules</button>
+        <button class="menu-link" id="btn-settings">Settings</button>
+        <button class="menu-link" id="btn-info">Info</button>
       </div>
     </div>
 
-    <!-- Titre -->
     <div class="menu-title">
       <div class="menu-logo">
         <span class="logo-dot" style="background:#e74c3c;"></span>
@@ -38,47 +31,46 @@
       <h1>MASTERMIND</h1>
     </div>
 
-    <!-- Bouton Jouer -->
-    <button class="btn-play" id="btn-play" data-fr="▶ Jouer" data-en="▶ Play">▶ Jouer</button>
+    <button class="btn-play" id="btn-play">▶ Play</button>
   </div>
 
-  <!-- Modal Regles -->
+  <!-- Rules Modal -->
   <div id="modal-rules" class="modal hidden">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 data-fr="Règles" data-en="Rules">Règles</h2>
+        <h2>Rules</h2>
         <button class="modal-close">&times;</button>
       </div>
       <div class="modal-body">
-        <p data-fr="Le robot choisit une combinaison secrète de 4 couleurs." data-en="The robot picks a secret combination of 4 colors.">Le robot choisit une combinaison secrète de 4 couleurs.</p>
-        <p data-fr="Tu as 10 essais pour la deviner." data-en="You have 10 tries to guess it.">Tu as 10 essais pour la deviner.</p>
-        <p data-fr="Clique sur les ronds pour choisir tes couleurs, puis appuie sur Go." data-en="Click on the circles to choose your colors, then press Go.">Clique sur les ronds pour choisir tes couleurs, puis appuie sur Go.</p>
-        <p data-fr="Après chaque essai, des pastilles d'indices apparaissent :" data-en="After each try, feedback dots appear:">Après chaque essai, des pastilles d'indices apparaissent :</p>
+        <p>The robot picks a secret combination of 4 colors.</p>
+        <p>You have 10 tries to guess it.</p>
+        <p>Click on the circles to choose your colors, then press Go.</p>
+        <p>After each try, feedback dots appear:</p>
         <div class="rules-legend">
           <div class="legend-item">
             <span class="legend-dot exact"></span>
-            <span data-fr="Bonne couleur, bon endroit" data-en="Right color, right position">Bonne couleur, bon endroit</span>
+            <span>Right color, right position</span>
           </div>
           <div class="legend-item">
             <span class="legend-dot misplaced"></span>
-            <span data-fr="Bonne couleur, mauvais endroit" data-en="Right color, wrong position">Bonne couleur, mauvais endroit</span>
+            <span>Right color, wrong position</span>
           </div>
         </div>
-        <p data-fr="Tu as 40 secondes par ligne. Si le temps est écoulé, la ligne est envoyée telle quelle." data-en="You have 40 seconds per line. If time runs out, the line is submitted as is.">Tu as 40 secondes par ligne. Si le temps est écoulé, la ligne est envoyée telle quelle.</p>
+        <p>You have 40 seconds per line. If time runs out, the line is submitted as is.</p>
       </div>
     </div>
   </div>
 
-  <!-- Modal Reglages -->
+  <!-- Settings Modal -->
   <div id="modal-settings" class="modal hidden">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 data-fr="Réglages" data-en="Settings">Réglages</h2>
+        <h2>Settings</h2>
         <button class="modal-close">&times;</button>
       </div>
       <div class="modal-body">
         <div class="setting-row">
-          <span data-fr="Temps par ligne" data-en="Time per line">Temps par ligne</span>
+          <span>Time per line</span>
           <div class="setting-control">
             <button class="setting-btn" data-setting="time" data-action="minus">−</button>
             <span id="setting-time" class="setting-value">40s</span>
@@ -86,7 +78,7 @@
           </div>
         </div>
         <div class="setting-row">
-          <span data-fr="Nombre de lignes" data-en="Number of lines">Nombre de lignes</span>
+          <span>Number of lines</span>
           <div class="setting-control">
             <button class="setting-btn" data-setting="lines" data-action="minus">−</button>
             <span id="setting-lines" class="setting-value">10</span>
@@ -94,7 +86,7 @@
           </div>
         </div>
         <div class="setting-row">
-          <span data-fr="Nombre de couleurs" data-en="Number of colors">Nombre de couleurs</span>
+          <span>Number of colors</span>
           <div class="setting-control">
             <button class="setting-btn" data-setting="colors" data-action="minus">−</button>
             <span id="setting-colors" class="setting-value">5</span>
@@ -105,7 +97,7 @@
     </div>
   </div>
 
-  <!-- Modal Info -->
+  <!-- Info Modal -->
   <div id="modal-info" class="modal hidden">
     <div class="modal-content">
       <div class="modal-header">
@@ -114,26 +106,25 @@
       </div>
       <div class="modal-body">
         <p><strong>Mastermind</strong></p>
-        <p data-fr="Basé sur le jeu de société Mastermind (1970)" data-en="Based on the board game Mastermind (1970)">Basé sur le jeu de société Mastermind (1970)</p>
+        <p>Based on the board game Mastermind (1970)</p>
         <p>Version 1.0</p>
-        <p data-fr="Date de sortie : 2026" data-en="Release date: 2026">Date de sortie : 2026</p>
-        <p data-fr="Compatible mobile et PC" data-en="Compatible with mobile and PC">Compatible mobile et PC</p>
+        <p>Release date: 2026</p>
+        <p>Compatible with mobile and PC</p>
       </div>
     </div>
   </div>
 
-  <!-- Jeu principal -->
+  <!-- Game -->
   <div class="game-container hidden">
-    <!-- Barre du haut -->
     <div class="top-bar">
       <button class="btn-home" id="btn-home">⌂</button>
+      <button class="btn-reset" id="btn-reset">↻</button>
       <button class="btn-theme" id="theme-toggle">☀</button>
-      <div class="score">Score : <span id="score-value">0</span> pts</div>
+      <div class="score">Score: <span id="score-value">0</span> pts</div>
     </div>
 
-    <!-- Combinaison secrete -->
     <div class="secret-row">
-      <div class="secret-label">Combinaison secrete</div>
+      <div class="secret-label">Secret combination</div>
       <div class="secret-area">
         <div class="secret-slots">
           <div class="secret-slot">?</div>
@@ -141,23 +132,19 @@
           <div class="secret-slot">?</div>
           <div class="secret-slot">?</div>
         </div>
-        <!-- Rideau par dessus les ronds secrets -->
         <div id="curtain" class="curtain hidden">
           <div class="curtain-timer">3</div>
         </div>
       </div>
     </div>
 
-    <!-- Message victoire/defaite -->
     <div id="game-message" class="game-message hidden"></div>
 
-    <!-- Timer + Go -->
     <div class="timer-bar">
       <div class="timer" id="game-timer">⏱ 00:00</div>
       <button class="btn-go">Go</button>
     </div>
 
-    <!-- Grille des essais -->
     <div class="board">
       <div class="row active" data-row="1">
         <div class="row-left"><div class="row-indicator">▶</div><div class="row-number">1</div></div>
@@ -313,7 +300,7 @@
 
   </div>
 
-  <!-- Menu deroulant des couleurs (apparait au clic) -->
+  <!-- Color dropdown -->
   <div id="color-dropdown" class="color-dropdown hidden">
     <div class="dropdown-option" data-color="red" style="background-color: #e74c3c;"></div>
     <div class="dropdown-option" data-color="blue" style="background-color: #3498db;"></div>

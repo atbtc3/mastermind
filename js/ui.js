@@ -45,12 +45,9 @@ function startGame() {
   msg.className = 'game-message hidden';
   msg.innerHTML = '';
 
-  // Le robot choisit sa combinaison + compte a rebours 3, 2, 1
+  // Le robot choisit sa combinaison et le timer demarre
   secret = generateSecret();
-
-  startCountdown(() => {
-    startRoundTimer(onTimeUp);
-  });
+  startRoundTimer(onTimeUp);
 }
 
 // === Quand le temps d'une ligne est ecoule (1 minute) ===
@@ -99,9 +96,10 @@ function submitCurrentRow() {
   // Victoire ?
   if (isWin(result)) {
     stopRoundTimer();
+    resetTimerDisplay();
     gameOver = true;
     revealSecret();
-    showMessage('win', 'Bravo !', 'Trouvé en ' + currentRow + ' essai' + (currentRow > 1 ? 's' : ''));
+    showMessage('win', 'Well done!', 'Found in ' + currentRow + ' tr' + (currentRow > 1 ? 'ies' : 'y'));
     showReplay();
     return;
   }
@@ -109,9 +107,10 @@ function submitCurrentRow() {
   // Plus d'essais ?
   if (currentRow >= MAX_TRIES) {
     stopRoundTimer();
+    resetTimerDisplay();
     gameOver = true;
     revealSecret();
-    showMessage('lose', 'Perdu !', '');
+    showMessage('lose', 'You lose!', '');
     showReplay();
     return;
   }
@@ -133,7 +132,7 @@ function showMessage(type, text, sub) {
 
 // === Passer en mode "Rejouer" ===
 function showReplay() {
-  btnGo.textContent = 'Rejouer';
+  btnGo.textContent = 'Replay';
   btnGo.classList.add('replay');
 }
 
@@ -211,6 +210,12 @@ function revealSecret() {
     secretSlots[i].classList.add('color-' + color);
   });
 }
+
+// === Bouton reset (relancer sans quitter) ===
+document.getElementById('btn-reset').addEventListener('click', () => {
+  stopRoundTimer();
+  startGame();
+});
 
 // === Bouton maison (retour au menu) ===
 document.getElementById('btn-home').addEventListener('click', () => {
