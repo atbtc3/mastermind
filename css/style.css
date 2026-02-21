@@ -74,6 +74,12 @@ body.light .secret-slot {
   color: #999;
 }
 
+body.light .secret-slot.color-red { background-color: #e74c3c; border-color: #e74c3c; color: transparent; }
+body.light .secret-slot.color-blue { background-color: #3498db; border-color: #3498db; color: transparent; }
+body.light .secret-slot.color-yellow { background-color: #f1c40f; border-color: #f1c40f; color: transparent; }
+body.light .secret-slot.color-green { background-color: #2ecc71; border-color: #2ecc71; color: transparent; }
+body.light .secret-slot.color-purple { background-color: #9b59b6; border-color: #9b59b6; color: transparent; }
+
 body.light .timer {
   color: #222;
 }
@@ -116,13 +122,13 @@ body.light .feedback-dot {
 }
 
 body.light .feedback-dot.misplaced {
-  background-color: #333;
-  border-color: #333;
+  background-color: #2e8b57;
+  border-color: #2e8b57;
 }
 
 body.light .feedback-dot.exact {
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+  background-color: #8b2040;
+  border-color: #8b2040;
 }
 
 body.light .palette-shortcuts {
@@ -350,13 +356,13 @@ body.light .game-message .sub-message {
 }
 
 .feedback-dot.exact {
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+  background-color: #ff1744;
+  border-color: #ff1744;
 }
 
 .feedback-dot.misplaced {
-  background-color: #eee;
-  border-color: #eee;
+  background-color: #00e676;
+  border-color: #00e676;
 }
 
 /* === Color Palette === */
