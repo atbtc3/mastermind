@@ -212,11 +212,18 @@ function revealSecret() {
   });
 }
 
+// === Bouton maison (retour au menu) ===
+document.getElementById('btn-home').addEventListener('click', () => {
+  stopRoundTimer();
+  gameOver = true;
+  document.querySelector('.game-container').classList.add('hidden');
+  document.getElementById('menu').classList.remove('hidden');
+});
+
 // === Toggle light/dark mode ===
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('light');
 });
 
-// === Lancer le jeu au chargement ===
-startGame();
+// Le jeu est lance par le menu (menu.js)

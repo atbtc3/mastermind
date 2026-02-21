@@ -15,7 +15,361 @@ body {
   align-items: center;
 }
 
+/* === Menu Container === */
+.menu-container {
+  background-color: #16213e;
+  border-radius: 16px;
+  padding: 24px;
+  width: 420px;
+  max-width: 95vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.menu-container.hidden {
+  display: none;
+}
+
+.menu-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.menu-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-top-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #667;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.lang-btn.active {
+  color: #eee;
+  font-weight: bold;
+}
+
+.lang-sep {
+  color: #555;
+  font-size: 13px;
+}
+
+.menu-link {
+  background: none;
+  border: none;
+  color: #8a9ab5;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.menu-link:hover {
+  color: #eee;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-title {
+  margin: 40px 0 32px;
+}
+
+.menu-logo {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logo-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+}
+
+.logo-dot:nth-child(1) { box-shadow: 0 0 7px #e74c3c; }
+.logo-dot:nth-child(2) { box-shadow: 0 0 7px #3498db; }
+.logo-dot:nth-child(3) { box-shadow: 0 0 7px #f1c40f; }
+.logo-dot:nth-child(4) { box-shadow: 0 0 7px #2ecc71; }
+
+.menu-title h1 {
+  font-size: 32px;
+  letter-spacing: 6px;
+  color: #eee;
+  font-weight: 300;
+}
+
+.btn-play {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-play:hover {
+  background: #2980b9;
+  transform: scale(1.03);
+}
+
+/* === Modal === */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #16213e;
+  border-radius: 14px;
+  padding: 24px;
+  width: 380px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2a3a5e;
+  padding-bottom: 12px;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #eee;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.modal-close:hover {
+  color: #eee;
+}
+
+.modal-body p {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.modal-body strong {
+  color: #eee;
+}
+
+/* === Rules Legend === */
+.rules-legend {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.exact {
+  background-color: #ff1744;
+}
+
+.legend-dot.misplaced {
+  background-color: #00e676;
+}
+
+/* === Settings === */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #2a3a5e;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.setting-btn {
+  background: #2a3a5e;
+  color: #eee;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.setting-btn:hover {
+  background: #3a4a6e;
+}
+
+.setting-value {
+  min-width: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #eee;
+}
+
+/* === Light Mode Menu === */
+body.light .menu-container {
+  background-color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light .menu-title h1 {
+  color: #222;
+}
+
+body.light .lang-btn {
+  color: #999;
+}
+
+body.light .lang-btn.active {
+  color: #222;
+}
+
+body.light .lang-sep {
+  color: #ccc;
+}
+
+body.light .menu-link {
+  color: #777;
+}
+
+body.light .menu-link:hover {
+  color: #222;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light .modal-content {
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+body.light .modal-header {
+  border-bottom-color: #eee;
+}
+
+body.light .modal-header h2 {
+  color: #222;
+}
+
+body.light .modal-close {
+  color: #aaa;
+}
+
+body.light .modal-close:hover {
+  color: #222;
+}
+
+body.light .modal-body p {
+  color: #555;
+}
+
+body.light .modal-body strong {
+  color: #222;
+}
+
+body.light .legend-item {
+  color: #555;
+}
+
+body.light .setting-row {
+  color: #555;
+  border-bottom-color: #eee;
+}
+
+body.light .setting-btn {
+  background: #eee;
+  color: #222;
+}
+
+body.light .setting-btn:hover {
+  background: #ddd;
+}
+
+body.light .setting-value {
+  color: #222;
+}
+
 /* === Game Container === */
+.game-container.hidden {
+  display: none;
+}
+
 .game-container {
   background-color: #16213e;
   border-radius: 16px;
@@ -23,6 +377,23 @@ body {
   width: 420px;
   max-width: 95vw;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.btn-home {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #eee;
+  transition: transform 0.2s;
+}
+
+.btn-home:hover {
+  transform: scale(1.2);
+}
+
+body.light .btn-home {
+  color: #222;
 }
 
 /* === Top Bar === */
